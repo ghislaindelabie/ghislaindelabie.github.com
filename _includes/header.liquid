@@ -42,8 +42,10 @@
 
       <div class="collapse navbar-collapse text-right" id="navbarNav">
         <ul class="navbar-nav ml-auto flex-nowrap">
-          {% for page in site.pages %}
-            {% if page.permalink == '/' %} {% assign about_title = page.title %} {% endif %}
+          {% for p in site.pages %}
+            {% if p.permalink == '/' and p.lang == site.active_lang %}
+              {% assign about_title = p.title %}
+            {% endif %}
           {% endfor %}
 
           <!-- About -->
@@ -59,7 +61,27 @@
           <!-- Other pages -->
           {% assign sorted_pages = site.pages | sort: 'nav_order' %}
           {% for p in sorted_pages %}
+            {%- comment -%}
+            Show pages in current language, or fallback to English if no translation exists
+            {%- endcomment -%}
+            {% assign show_page = false %}
             {% if p.nav and p.autogen == null %}
+              {% if p.lang == site.active_lang %}
+                {% assign show_page = true %}
+              {% elsif site.active_lang != site.default_lang and p.lang == site.default_lang %}
+                {%- comment -%}Check if French version exists{%- endcomment -%}
+                {% assign has_translation = false %}
+                {% for p2 in site.pages %}
+                  {% if p2.permalink == p.permalink and p2.lang == site.active_lang %}
+                    {% assign has_translation = true %}
+                  {% endif %}
+                {% endfor %}
+                {% unless has_translation %}
+                  {% assign show_page = true %}
+                {% endunless %}
+              {% endif %}
+            {% endif %}
+            {% if show_page %}
               {% if p.dropdown %}
                 {% assign has_active_child = false %}
                 {% for child in p.children %}
@@ -135,6 +157,12 @@
               </button>
             </li>
           {% endif %}
+          <!-- Language Switcher -->
+          <li class="nav-item">
+            <span class="nav-link">
+              {% include lang_switcher.liquid %}
+            </span>
+          </li>
         </ul>
       </div>
     </div>

@@ -2,6 +2,7 @@
 layout: cv
 permalink: /cv/
 title: cv
+lang: en
 nav: true
 nav_order: 5
 cv_pdf: #CV_Ghislain.pdf # you can also use external links here

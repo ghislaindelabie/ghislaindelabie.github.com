@@ -1,18 +1,16 @@
 {% for lang in site.languages %}
+  {% assign lang_full = site.data.locales[lang].lang_full %}
   {% if lang == site.active_lang %}
-    <span class="active">{{ lang }}</span>
+    <span class="active">{{ lang_full }}</span>
   {% else %}
-    {%- comment -%} Construit l'URL cible grâce au hash permalink_lang {%- endcomment -%}
-    {% capture lang_href %}
-      {{ site.baseurl }}/
-      {% if lang != site.default_lang %}{{ lang }}{% endif %}
-      {% unless page.permalink_lang[lang] == '/' %}
-        {{ page.permalink_lang[lang] }}
-      {% endunless %}
+    {%- comment -%}
+    Use page.permalink (not page.url) to avoid language prefix duplication
+    Wrap with static_href to prevent Polyglot URL relativization
+    {%- endcomment -%}
+    {% capture lang_url %}
+      {{ site.baseurl }}/{% if lang != site.default_lang %}{{ lang }}/{% endif %}{{ page.permalink | remove_first: '/' }}
     {% endcapture %}
-
-    {% static_href %}
-      <a href="{{ lang_href | strip }}" hreflang="{{ lang }}">{{ lang }}</a>
-    {% endstatic_href %}
+    <a {% static_href %}href="{{ lang_url | strip }}"{% endstatic_href %} hreflang="{{ lang }}">{{ lang_full }}</a>
   {% endif %}
+  {% unless forloop.last %} | {% endunless %}
 {% endfor %}
