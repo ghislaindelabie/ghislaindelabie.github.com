@@ -80,9 +80,9 @@ layout: post
 title: "Article Title"
 date: YYYY-MM-DD HH:MM:SS
 description: "Brief description (auto-generated if missing)"
-tags: [tag1, tag2]
-categories: post
-lang: fr  # or en (auto-detect or manual)
+tags: [tag1, tag2, transport]  # preserve original tags + add 'transport'
+categories: [post]  # standardized to 'post' for WordPress migration
+lang: fr  # hardcoded for WordPress import (all French)
 original_url: "https://original-source.com/article"  # for provenance
 redirect_from:  # for SEO if migrating domains
   - /old-path/article
@@ -93,9 +93,16 @@ translated: false  # flag for translation status
 **Logic:**
 - Parse existing frontmatter
 - **Language:** Set to French (`lang: fr`) for WordPress import (all articles in French)
+- **Tags:** Preserve original tags + add 'transport' tag (for blog navigation)
+- **Categories:** Set all to ['post'] (WordPress categories replaced with standardized category)
 - Generate description from first paragraph if missing
 - Ensure all required fields present
 - Validate dates (ISO format)
+
+**Rationale:**
+- **Tags:** Keep WordPress tags for content navigation (e.g., 'fun', 'innovation', 'urbanism')
+- **Categories:** WordPress used multiple categories (magazine, mobilite-active, etc.) → standardize to 'post'
+- **Transport tag:** Added to all WordPress articles for blog-wide transport theme showcase
 
 **Note:** WordPress import is French-only. Language detection will be implemented later for Medium/other sources if needed.
 
