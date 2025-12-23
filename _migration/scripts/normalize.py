@@ -20,7 +20,7 @@ from pathlib import Path
 
 # Import feature modules
 sys.path.insert(0, str(Path(__file__).parent))
-from utils import frontmatter, headings, markdown_cleanup, code_blocks, embeds
+from utils import frontmatter, headings, markdown_cleanup, code_blocks, embeds, images, links
 
 
 def normalize_post(filepath, config):
@@ -162,8 +162,49 @@ def normalize_post(filepath, config):
             for issue in feature_results['issues']:
                 print(f"      - {issue}")
 
-    # TODO: Feature F: Image processing
-    # TODO: Feature G: Link checking & Wayback integration
+    # Feature F: Image processing
+    if config.get('images', True):
+        print("  → Running Feature F: Image processing...")
+        content, feature_results = images.normalize(content, filepath)
+        results['features']['images'] = feature_results
+
+        # Display results
+        if feature_results['changes']:
+            print(f"    ✓ Changes: {len(feature_results['changes'])}")
+            for change in feature_results['changes']:
+                print(f"      - {change}")
+
+        if feature_results['warnings']:
+            print(f"    ⚠ Warnings: {len(feature_results['warnings'])}")
+            for warning in feature_results['warnings']:
+                print(f"      - {warning}")
+
+        if feature_results['issues']:
+            print(f"    ✗ Issues: {len(feature_results['issues'])}")
+            for issue in feature_results['issues']:
+                print(f"      - {issue}")
+
+    # Feature G: Link checking & Wayback integration
+    if config.get('links', True):
+        print("  → Running Feature G: Link checking...")
+        content, feature_results = links.normalize(content)
+        results['features']['links'] = feature_results
+
+        # Display results
+        if feature_results['changes']:
+            print(f"    ✓ Changes: {len(feature_results['changes'])}")
+            for change in feature_results['changes']:
+                print(f"      - {change}")
+
+        if feature_results['warnings']:
+            print(f"    ⚠ Warnings: {len(feature_results['warnings'])}")
+            for warning in feature_results['warnings']:
+                print(f"      - {warning}")
+
+        if feature_results['issues']:
+            print(f"    ✗ Issues: {len(feature_results['issues'])}")
+            for issue in feature_results['issues']:
+                print(f"      - {issue}")
 
     # Write normalized content
     if not config.get('dry_run', False):
@@ -244,8 +285,8 @@ Examples:
         'markdown_cleanup': True,
         'code_blocks': True,
         'embeds': True,
-        'images': False,
-        'links': False,
+        'images': True,
+        'links': True,
         'dry_run': args.dry_run
     }
 
