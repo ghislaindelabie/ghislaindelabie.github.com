@@ -20,7 +20,7 @@ from pathlib import Path
 
 # Import feature modules
 sys.path.insert(0, str(Path(__file__).parent))
-from utils import frontmatter, headings, markdown_cleanup
+from utils import frontmatter, headings, markdown_cleanup, code_blocks, embeds
 
 
 def normalize_post(filepath, config):
@@ -118,8 +118,50 @@ def normalize_post(filepath, config):
             for issue in feature_results['issues']:
                 print(f"      - {issue}")
 
-    # TODO: Feature D: Code block standardization
-    # TODO: Feature E: Embed detection & conversion
+    # Feature D: Code block standardization
+    if config.get('code_blocks', True):
+        print("  → Running Feature D: Code block standardization...")
+        content, feature_results = code_blocks.normalize(content)
+        results['features']['code_blocks'] = feature_results
+
+        # Display results
+        if feature_results['changes']:
+            print(f"    ✓ Changes: {len(feature_results['changes'])}")
+            for change in feature_results['changes']:
+                print(f"      - {change}")
+
+        if feature_results['warnings']:
+            print(f"    ⚠ Warnings: {len(feature_results['warnings'])}")
+            for warning in feature_results['warnings']:
+                print(f"      - {warning}")
+
+        if feature_results['issues']:
+            print(f"    ✗ Issues: {len(feature_results['issues'])}")
+            for issue in feature_results['issues']:
+                print(f"      - {issue}")
+
+    # Feature E: Embed detection & conversion
+    if config.get('embeds', True):
+        print("  → Running Feature E: Embed detection & conversion...")
+        content, feature_results = embeds.normalize(content)
+        results['features']['embeds'] = feature_results
+
+        # Display results
+        if feature_results['changes']:
+            print(f"    ✓ Changes: {len(feature_results['changes'])}")
+            for change in feature_results['changes']:
+                print(f"      - {change}")
+
+        if feature_results['warnings']:
+            print(f"    ⚠ Warnings: {len(feature_results['warnings'])}")
+            for warning in feature_results['warnings']:
+                print(f"      - {warning}")
+
+        if feature_results['issues']:
+            print(f"    ✗ Issues: {len(feature_results['issues'])}")
+            for issue in feature_results['issues']:
+                print(f"      - {issue}")
+
     # TODO: Feature F: Image processing
     # TODO: Feature G: Link checking & Wayback integration
 
@@ -200,8 +242,8 @@ Examples:
         'frontmatter': True,
         'headings': True,
         'markdown_cleanup': True,
-        'code_blocks': False,
-        'embeds': False,
+        'code_blocks': True,
+        'embeds': True,
         'images': False,
         'links': False,
         'dry_run': args.dry_run
