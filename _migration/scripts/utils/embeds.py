@@ -33,23 +33,33 @@ def normalize(content: str) -> Tuple[str, Dict]:
         results['status'] = 'error'
         return content, results
 
-    # 1. Convert YouTube embeds
+    # 1. Convert YouTube embeds (iframes)
     body, youtube_count, youtube_ids = convert_youtube_embeds(body)
     if youtube_count > 0:
         results['changes'].append(f"Converted {youtube_count} YouTube embed(s)")
         for vid_id in youtube_ids:
             results['warnings'].append(f"YouTube video {vid_id} - verify video is still available")
 
+    # 1b. Convert plain YouTube URLs to markdown links
+    body, youtube_url_count = convert_youtube_urls(body)
+    if youtube_url_count > 0:
+        results['changes'].append(f"Converted {youtube_url_count} plain YouTube URL(s) to links")
+
     # 2. Convert Vimeo embeds
     body, vimeo_count, vimeo_ids = convert_vimeo_embeds(body)
     if vimeo_count > 0:
         results['changes'].append(f"Converted {vimeo_count} Vimeo embed(s)")
 
-    # 3. Convert Twitter embeds
+    # 3. Convert Twitter embeds (blockquotes)
     body, twitter_count = convert_twitter_embeds(body)
     if twitter_count > 0:
         results['changes'].append(f"Converted {twitter_count} Twitter embed(s)")
         results['warnings'].append("Twitter embeds converted to blockquotes - API access may be required for live embedding")
+
+    # 3b. Convert plain Twitter URLs to markdown links
+    body, twitter_url_count = convert_twitter_urls(body)
+    if twitter_url_count > 0:
+        results['changes'].append(f"Converted {twitter_url_count} plain Twitter URL(s) to links")
 
     # 4. Detect and flag unknown embeds
     unknown_embeds = detect_unknown_embeds(body)
@@ -123,6 +133,40 @@ def convert_youtube_embeds(body: str) -> Tuple[str, int, List[str]]:
     return body, count, video_ids
 
 
+def convert_youtube_urls(body: str) -> Tuple[str, int]:
+    """
+    Convert plain YouTube URLs to markdown links
+    Handles: https://youtu.be/VIDEO_ID and https://www.youtube.com/watch?v=VIDEO_ID
+    Also handles escaped characters (\_) from WordPress exports
+
+    Returns:
+        tuple: (converted_body, count_of_conversions)
+    """
+    count = 0
+
+    # Pattern for plain YouTube URLs on their own line
+    # Matches: https://youtu.be/VIDEO_ID or https://www.youtube.com/watch?v=VIDEO_ID
+    # Allows for escaped underscores and hyphens (\\_ or \\-) from WordPress
+    youtube_url_patterns = [
+        r'(?:^|\n)(https?://(?:www\.)?youtu\.be/([-a-zA-Z0-9_\\]+))(?:\n|$)',
+        r'(?:^|\n)(https?://(?:www\.)?youtube\.com/watch\?v=([-a-zA-Z0-9_\\]+))(?:\n|$)'
+    ]
+
+    for pattern in youtube_url_patterns:
+        def replace_url(match):
+            nonlocal count
+            url = match.group(1)
+            video_id = match.group(2)
+            # Remove escape characters from URL for display
+            clean_url = url.replace('\\', '')
+            count += 1
+            return f"\n[YouTube: {clean_url}]({clean_url})\n"
+
+        body = re.sub(pattern, replace_url, body, flags=re.MULTILINE)
+
+    return body, count
+
+
 def convert_vimeo_embeds(body: str) -> Tuple[str, int, List[str]]:
     """
     Convert Vimeo iframes to markdown links
@@ -183,6 +227,31 @@ def convert_twitter_embeds(body: str) -> Tuple[str, int]:
             return f"\n> {clean_content}\n"
 
     body = re.sub(twitter_pattern, replace_twitter, body, flags=re.IGNORECASE | re.DOTALL)
+
+    return body, count
+
+
+def convert_twitter_urls(body: str) -> Tuple[str, int]:
+    """
+    Convert plain Twitter URLs to markdown links
+    Handles: https://twitter.com/user/status/TWEET_ID
+
+    Returns:
+        tuple: (converted_body, count_of_conversions)
+    """
+    count = 0
+
+    # Pattern for plain Twitter/X URLs on their own line
+    # Matches: https://twitter.com/USER/status/TWEET_ID or https://x.com/USER/status/TWEET_ID
+    twitter_url_pattern = r'(?:^|\n)(https?://(?:twitter\.com|x\.com)/[^/]+/status/\d+)(?:\n|$)'
+
+    def replace_url(match):
+        nonlocal count
+        url = match.group(1)
+        count += 1
+        return f"\n[Tweet: {url}]({url})\n"
+
+    body = re.sub(twitter_url_pattern, replace_url, body, flags=re.MULTILINE)
 
     return body, count
 

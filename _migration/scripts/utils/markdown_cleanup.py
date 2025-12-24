@@ -48,6 +48,11 @@ def normalize(content: str) -> Tuple[str, Dict]:
     if caption_count > 0:
         results['changes'].append(f"Converted {caption_count} WordPress captions to markdown")
 
+    # 3b. Fix figure tags with markdown images (convert to HTML)
+    body, figure_count = fix_figure_markdown_images(body)
+    if figure_count > 0:
+        results['changes'].append(f"Converted {figure_count} figure tags with markdown images to HTML")
+
     # 4. Fix escaped characters
     body, escape_count = fix_escaped_characters(body)
     if escape_count > 0:
@@ -212,6 +217,52 @@ def fix_wordpress_captions(body: str) -> Tuple[str, int]:
         return f"![{caption_text}]({image_url})"
 
     body = re.sub(caption_attr_pattern, replace_caption_attr, body, flags=re.IGNORECASE)
+
+    return body, count
+
+
+def fix_figure_markdown_images(body: str) -> Tuple[str, int]:
+    """
+    Convert <figure> tags containing markdown images to HTML <img> tags
+
+    Markdown inside HTML tags isn't processed, so we need to convert:
+        <figure>
+        ![alt](/path/to/image.jpg)
+        <figcaption>Caption text</figcaption>
+        </figure>
+
+    To:
+        <figure>
+        <img src="/path/to/image.jpg" alt="alt" class="img-fluid">
+        <figcaption>Caption text</figcaption>
+        </figure>
+
+    Returns:
+        tuple: (converted_body, count_of_conversions)
+    """
+    count = 0
+
+    # Pattern to match <figure> with markdown image
+    # Handles optional blank lines and whitespace
+    figure_pattern = r'<figure>\s*!\[([^\]]*)\]\(([^)]+)\)\s*(<figcaption>.*?</figcaption>)?\s*</figure>'
+
+    def replace_figure(match):
+        nonlocal count
+        alt_text = match.group(1)
+        img_url = match.group(2)
+        figcaption = match.group(3) if match.group(3) else ''
+
+        count += 1
+
+        # Build HTML img tag
+        html_img = f'<img src="{img_url}" alt="{alt_text}" class="img-fluid">'
+
+        if figcaption:
+            return f'<figure>\n{html_img}\n{figcaption}\n</figure>'
+        else:
+            return f'<figure>\n{html_img}\n</figure>'
+
+    body = re.sub(figure_pattern, replace_figure, body, flags=re.DOTALL)
 
     return body, count
 
