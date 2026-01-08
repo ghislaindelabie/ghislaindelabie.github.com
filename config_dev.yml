@@ -1,0 +1,5 @@
+# _config_dev.yml
+jekyll_minifier:
+  minify_html: false
+  minify_css:  false
+  minify_js:   false
