@@ -11,3 +11,9 @@ assets/libs/
 node_modules/
 vendor
 .idea
+
+# Migration workspace
+wp-import/
+_migration/test_articles/
+_migration/logs/*.md
+_migration/data/*.json__pycache__/
