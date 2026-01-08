@@ -54,6 +54,16 @@ Ce guide complet couvre :
 - Outils spécifiques pour l'IA et la mobilité
 - Dépannage et optimisation
 
+**🎨 Atelier Pratique Complet :**
+
+👉 **[Atelier Vibe Coding - Créer avec l'IA](/ia-mobilite/vibe-workshop/)** *(Guide pas à pas pour votre premier projet)*
+
+**Cet atelier vous guidera à travers :**
+- La création de votre premier site web avec l'IA
+- Des expériences pratiques pour comprendre Mistral Vibe
+- Une méthodologie complète pour présenter votre projet
+- Des idées pour aller plus loin avec l'IA et la mobilité
+
 **Tutoriels spécifiques à venir :**
 
 - Premiers pas avec Vibe Coding pour la mobilité *(à venir)*
