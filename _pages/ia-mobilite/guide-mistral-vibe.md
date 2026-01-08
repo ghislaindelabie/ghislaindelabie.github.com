@@ -12,6 +12,92 @@ lang: en
 
 ---
 
+## 🆕 Account Creation & API Key Setup
+
+### 1. Create Your Mistral AI Account
+
+**Sign up at the official Mistral AI platform:**
+
+👉 **[Mistral AI Signup](https://mistral.ai/)** *(Official website)*
+
+**Steps to create your account:**
+1. Go to [https://mistral.ai/](https://mistral.ai/)
+2. Click "Sign Up" or "Get Started"
+3. Choose your preferred signup method (email, Google, GitHub)
+4. Complete the registration form
+5. Verify your email address
+
+**🎉 Special Offer for Students & Developers:**
+- The **Devstral-2** model is currently **FREE** for all users
+- You can use advanced AI capabilities **without any charges**
+- Even after any promotional periods, smaller models remain free for basic usage
+
+### 2. Generate Your API Key
+
+**After logging in:**
+1. Navigate to your **Account Settings** or **API Dashboard**
+2. Look for "API Keys" or "Developer Settings"
+3. Click "Generate New API Key"
+4. Copy your API key immediately (it won't be shown again)
+
+**⚠️ Important Security Notes:**
+- **Never share your API key** publicly
+- **Don't commit it to Git repositories**
+- Store it securely in environment variables or secret managers
+- Mistral AI uses **token-based billing** - you only pay for what you use
+
+### 3. Configure API Key for Mistral Vibe
+
+**Recommended setup methods:**
+
+#### Option A: Environment Variable (Most Secure)
+```bash
+# Windows (PowerShell)
+$env:MISTRAL_API_KEY="your-api-key-here"
+
+# macOS/Linux (Bash)
+export MISTRAL_API_KEY="your-api-key-here"
+
+# To make it permanent, add to your shell profile
+# (.bashrc, .zshrc, or .bash_profile)
+echo 'export MISTRAL_API_KEY="your-api-key-here"' >> ~/.zshrc
+```
+
+#### Option B: Mistral Vibe Configuration File
+Create a `.env` file in your project root:
+```env
+MISTRAL_API_KEY=your-api-key-here
+MISTRAL_MODEL=devstral-2  # Use the free model
+```
+
+**💡 Pro Tip:** Add `.env` to your `.gitignore` file to prevent accidental commits:
+```gitignore
+# Add this to your .gitignore
+.env
+*.env
+.env*.local
+```
+
+### 4. Verify Your Setup
+
+Test your API key configuration:
+```bash
+# Check if environment variable is set
+echo $MISTRAL_API_KEY  # Should show your key (macOS/Linux)
+$env:MISTRAL_API_KEY   # Should show your key (Windows)
+
+# Test Mistral Vibe connection
+mistral-vibe test-api
+```
+
+**✅ Billing Information:**
+- **Current promotion**: Devstral-2 model is FREE
+- **Standard pricing**: Pay-as-you-go for advanced models
+- **Free tier**: Smaller models available for free usage
+- **Student benefits**: Check [Mistral AI Education](https://mistral.ai/education) for special programs
+
+---
+
 ## 📋 Common Prerequisites
 
 ### 1. Install Python

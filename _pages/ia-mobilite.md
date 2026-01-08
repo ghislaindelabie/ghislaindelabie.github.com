@@ -54,6 +54,16 @@ This comprehensive guide covers:
 - AI and mobility specific tools
 - Troubleshooting and optimization
 
+**🎨 Complete Practical Workshop:**
+
+👉 **[Vibe Coding Workshop - Create with AI](/ia-mobilite/vibe-workshop/)** *(Step-by-step guide for your first project)*
+
+**This workshop will guide you through:**
+- Creating your first website with AI
+- Practical experiments to understand Mistral Vibe
+- Complete methodology to present your project
+- Ideas to go further with AI and mobility
+
 **Specific tutorials coming soon:**
 
 - Getting started with Vibe Coding for mobility *(coming soon)*
