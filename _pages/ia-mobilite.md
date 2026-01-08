@@ -4,6 +4,7 @@ permalink: /ia-mobilite/
 title: IA & Mobilité
 description: Course on Artificial Intelligence applied to Mobility - ESTACA
 lang: en
+page_id: ia-mobilite
 ---
 
 # Course: Artificial Intelligence & Mobility
