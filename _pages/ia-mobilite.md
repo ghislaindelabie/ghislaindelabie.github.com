@@ -44,14 +44,23 @@ The Vibe Coding Workshop is an immersive experience where you'll learn to:
 - **Deploy** functional solutions in real time
 - **Collaborate** with advanced AI tools
 
-**Available tutorials:**
+**📖 Complete guide available:**
 
-- [Mistral Vibe installation guide for Windows](#) *(coming soon)*
-- [Getting started with Vibe Coding for mobility](#) *(coming soon)*
-- [Create your first AI project with Vibe](#) *(coming soon)*
-- [Integration with transportation data](#) *(coming soon)*
+👉 **[Mistral Vibe Guide - Complete Setup](/ia-mobilite/guide-mistral-vibe/)** *(Windows and macOS)*
 
-*These detailed tutorials will be published soon. Stay tuned!*
+This comprehensive guide covers:
+- Installation on Windows and macOS
+- Terminal configuration
+- AI and mobility specific tools
+- Troubleshooting and optimization
+
+**Specific tutorials coming soon:**
+
+- Getting started with Vibe Coding for mobility *(coming soon)*
+- Create your first AI project with Vibe *(coming soon)*
+- Integration with transportation data *(coming soon)*
+
+*These additional resources will be added soon!*
 
 ## Flagship Project: Gare Ton Char
 

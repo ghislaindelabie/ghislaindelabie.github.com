@@ -44,14 +44,23 @@ L'atelier Vibe Coding est une expérience immersive où vous apprendrez à :
 - **Déployer** des solutions fonctionnelles en temps réel
 - **Collaborer** avec des outils d'IA avancés
 
-**Tutoriels disponibles :**
+**📖 Guide complet disponible :**
 
-- [Guide d'installation de Mistral Vibe pour Windows](#) *(à venir)*
-- [Premiers pas avec Vibe Coding pour la mobilité](#) *(à venir)*
-- [Créer votre premier projet IA avec Vibe](#) *(à venir)*
-- [Intégration avec les données de transport](#) *(à venir)*
+👉 **[Guide Mistral Vibe - Configuration Complete](/ia-mobilite/guide-mistral-vibe/)** *(Windows et macOS)*
 
-*Ces tutoriels détaillés seront publiés prochainement. Restez connecté !*
+Ce guide complet couvre :
+- Installation sur Windows et macOS
+- Configuration des terminaux
+- Outils spécifiques pour l'IA et la mobilité
+- Dépannage et optimisation
+
+**Tutoriels spécifiques à venir :**
+
+- Premiers pas avec Vibe Coding pour la mobilité *(à venir)*
+- Créer votre premier projet IA avec Vibe *(à venir)*
+- Intégration avec les données de transport *(à venir)*
+
+*Ces ressources supplémentaires seront ajoutées prochainement !*
 
 ## Projet Phare : Gare Ton Char
 
