@@ -1,150 +1,76 @@
 ---
 layout: page
 permalink: /ia-mobilite/
-title: IA & Mobilité
-description: Course on Artificial Intelligence applied to Mobility - ESTACA
+title: AI & Mobility
+description: Revolutionary course on Artificial Intelligence applied to Mobility - ESTACA
 lang: en
 page_id: ia-mobilite
 ---
 
-# Course: Artificial Intelligence & Mobility
+# AI & Mobility: Reinventing mobility with artificial intelligence
 
-Welcome to the page dedicated to the **Artificial Intelligence & Mobility** course taught at ESTACA. This course explores the intersections between artificial intelligence and urban mobility challenges.
+**Innovation at the intersection of AI and mobility.** This unique course explores how artificial intelligence is radically transforming transportation and urban mobility. Dive into the future of smart cities.
 
-## Course Description
+## Course: Artificial Intelligence for Mobility
 
-This course covers the following topics:
+### 🎯 Learning Objectives
 
-- **Introduction to AI applied to mobility**: Fundamental concepts and applications
-- **Mobility data analysis**: Collection, processing, and visualization of data
-- **Modeling and prediction of transportation flows**: Machine learning techniques for mobility
-- **Practical applications**:
-  - Route optimization and intelligent traffic management
-  - Smart parking systems (e.g., Gare Ton Char project)
-  - Transportation demand prediction
-  - Autonomous vehicles and intelligent transportation systems
+This intensive course prepares you to master AI applied to modern mobility challenges:
 
-## Student Projects
+- **Understand** the foundations of AI in transportation systems
+- **Analyze** mobility data with advanced techniques
+- **Design** innovative solutions for urban challenges
+- **Develop** concrete applications with modern tools
 
-### Gare Ton Char - Smart Parking Application
+### 📚 Course Materials
 
-An innovative student project developed as part of this course:
+**Resources available for students:**
 
-**Gare Ton Char** is a mobile application designed to simplify parking in urban environments. The application uses AI algorithms to:
+- **Slides and presentations**: Fundamentals of AI applied to mobility
+- **Case studies**: Real projects and analyses of existing solutions
+- **Datasets**: Real urban mobility data for your projects
+- **Technical tutorials**: Practical guides on tools and technologies
 
-- Locate available parking spaces in real time
-- Predict parking space availability
-- Optimize routes to available spaces
-- Facilitate parking payment
+*[Links to materials coming soon - in preparation]*
 
-**Key features**:
-- Intuitive user interface
-- Precise geolocation system
-- Integrated secure payment
-- Parking history
+### 💻 Vibe Coding Workshop: Learning by doing
 
-**Technologies used**:
-- Mobile development (React Native/Flutter)
-- Machine learning algorithms for prediction
-- Integration with payment systems
-- Mapping APIs
+**Discover our revolutionary hands-on learning approach with Mistral Vibe:**
 
-[View the Gare Ton Char project](#) (link coming soon)
+The Vibe Coding Workshop is an immersive experience where you'll learn to:
 
-## Educational Resources
+- **Set up** your AI development environment for mobility
+- **Develop** intelligent applications with AI assistants
+- **Deploy** functional solutions in real time
+- **Collaborate** with advanced AI tools
 
-### Course Materials
+**Available tutorials:**
 
-- [Introduction to AI and mobility slides](#) (PDF)
-- [Gare Ton Char project specifications](#) (PDF)
-- [Urban mobility dataset](#) (CSV)
+- [Mistral Vibe installation guide for Windows](#) *(coming soon)*
+- [Getting started with Vibe Coding for mobility](#) *(coming soon)*
+- [Create your first AI project with Vibe](#) *(coming soon)*
+- [Integration with transportation data](#) *(coming soon)*
 
-### Recommended Readings
+*These detailed tutorials will be published soon. Stay tuned!*
 
-- "Artificial Intelligence: A Modern Approach" - Stuart Russell and Peter Norvig
-- "Smart Cities: Big Data, Civic Hackers, and the Quest for a New Utopia" - Anthony M. Townsend
-- "The Algorithm Design Manual" - Steven S. Skiena
+## Flagship Project: Gare Ton Char
 
-### Tools and Technologies
+**Our innovative student project revolutionizing urban parking:**
 
-- **Python**: Pandas, NumPy, Scikit-learn, TensorFlow
-- **Visualization**: Matplotlib, Seaborn, Plotly
-- **Mobile development**: React Native, Flutter
-- **Databases**: SQL, MongoDB
-- **Cloud**: AWS, Google Cloud Platform
+Gare Ton Char is an intelligent mobile application that uses AI to:
 
-## Evaluations
+- **Find** available parking spaces in real time
+- **Predict** future availability of spaces
+- **Optimize** routes to parking lots
+- **Simplify** the payment process
 
-The course is evaluated through:
+*[Demo and technical details coming soon]*
 
-1. **Practical project** (60%): Development of an application or system using AI to solve a mobility problem
-2. **Final exam** (30%): Evaluation of theoretical and practical knowledge
-3. **Participation and practical work** (10%): Engagement in class and exercises
+## Why this course is unique?
 
-## Skills Acquired
+- **Practical approach**: 80% hands-on work, 20% theory
+- **Modern technologies**: Use of cutting-edge AI tools
+- **Real projects**: Collaboration with industrial partners
+- **Concrete impact**: Solutions that change daily life
 
-By the end of this course, students will be able to:
-
-- Understand the fundamental principles of AI applied to mobility
-- Analyze and process mobility data
-- Design and implement AI solutions for transportation problems
-- Develop mobile applications integrating AI features
-- Work in teams on interdisciplinary projects
-
-## Career Opportunities
-
-This course prepares students for careers in:
-
-- **Intelligent transportation engineering**
-- **Urban mobility solutions development**
-- **AI research applied to transportation**
-- **Sustainable mobility consulting**
-- **Autonomous vehicle development**
-
-## Contact
-
-For any questions regarding the course or projects, please contact me:
-
-- **Email**: [ghislain.delabie@estaca.fr](#)
-- **Office**: ESTACA West Campus, Office [number]
-- **Office hours**: [days and times]
-
-## Course News
-
-**Latest updates**:
-
-- January 2025: Launch of the Gare Ton Char project with the new class
-- December 2024: Publication of AI & Mobility hackathon results
-- November 2024: Guest lecture on autonomous vehicles
-
-## Project Gallery
-
-[Student project image gallery](#) (coming soon)
-
-## Partnerships
-
-This course benefits from collaborations with:
-
-- **Transportation companies**: [Partners]
-- **Local authorities**: [Partner cities]
-- **Innovative startups**: [Startups]
-
-## Student Testimonials
-
-> "The AI & Mobility course allowed me to understand how to practically apply artificial intelligence to real transportation problems. The Gare Ton Char project was an incredible experience!" - [Student 1]
-
-> "Thanks to this course, I was able to develop highly sought-after skills in the field of intelligent transportation. This opened doors for my internship." - [Student 2]
-
-## Additional Resources
-
-- [ESTACA official website](#)
-- [Intelligent mobility portal](#)
-- [Transportation innovation blog](#)
-
-## Archives
-
-- [Projects from previous years](#)
-- [Student publications](#)
-- [Presentation videos](#)
-
-*This page will be regularly updated with new resources and information about the course.*
+**Ready to transform the future of mobility?** This course is your springboard to the careers of tomorrow.
