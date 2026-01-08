@@ -188,6 +188,11 @@ exclude:
   - README.md
   - readme_preview/
   - vendor
+  - NORMALIZATION_SCRIPT_DEV_PLAN.md
+  - BLOG_MIGRATION_PLAN.md
+  - _drafts/
+  - _migration/
+  - wp-import/
 keep_files:
   - CNAME
   - .nojekyll
