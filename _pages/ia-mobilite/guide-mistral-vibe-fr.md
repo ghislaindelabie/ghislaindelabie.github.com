@@ -12,6 +12,92 @@ lang: fr
 
 ---
 
+## 🆕 Création de Compte & Configuration de la Clé API
+
+### 1. Créez Votre Compte Mistral AI
+
+**Inscrivez-vous sur la plateforme officielle Mistral AI :**
+
+👉 **[Inscription Mistral AI](https://mistral.ai/)** *(Site officiel)*
+
+**Étapes pour créer votre compte :**
+1. Allez sur [https://mistral.ai/](https://mistral.ai/)
+2. Cliquez sur "S'inscrire" ou "Commencer"
+3. Choisissez votre méthode d'inscription préférée (email, Google, GitHub)
+4. Complétez le formulaire d'inscription
+5. Vérifiez votre adresse email
+
+**🎉 Offre Spéciale pour Étudiants & Développeurs :**
+- Le modèle **Devstral-2** est actuellement **GRATUIT** pour tous les utilisateurs
+- Vous pouvez utiliser des capacités d'IA avancées **sans aucun frais**
+- Même après les périodes promotionnelles, les modèles plus petits restent gratuits pour un usage de base
+
+### 2. Générez Votre Clé API
+
+**Après vous être connecté :**
+1. Accédez à vos **Paramètres de Compte** ou **Tableau de Bord API**
+2. Recherchez "Clés API" ou "Paramètres Développeur"
+3. Cliquez sur "Générer Nouvelle Clé API"
+4. Copiez votre clé API immédiatement (elle ne sera plus affichée)
+
+**⚠️ Notes de Sécurité Importantes :**
+- **Ne partagez jamais votre clé API** publiquement
+- **Ne la commitez pas** dans les dépôts Git
+- Stockez-la en toute sécurité dans des variables d'environnement ou des gestionnaires de secrets
+- Mistral AI utilise une **facturation basée sur les tokens** - vous ne payez que pour ce que vous utilisez
+
+### 3. Configurez la Clé API pour Mistral Vibe
+
+**Méthodes de configuration recommandées :**
+
+#### Option A : Variable d'Environnement (Plus Sécurisé)
+```bash
+# Windows (PowerShell)
+$env:MISTRAL_API_KEY="votre-clé-api-ici"
+
+# macOS/Linux (Bash)
+export MISTRAL_API_KEY="votre-clé-api-ici"
+
+# Pour la rendre permanente, ajoutez à votre profil shell
+# (.bashrc, .zshrc, ou .bash_profile)
+echo 'export MISTRAL_API_KEY="votre-clé-api-ici"' >> ~/.zshrc
+```
+
+#### Option B : Fichier de Configuration Mistral Vibe
+Créez un fichier `.env` à la racine de votre projet :
+```env
+MISTRAL_API_KEY=votre-clé-api-ici
+MISTRAL_MODEL=devstral-2  # Utilisez le modèle gratuit
+```
+
+**💡 Astuce Pro :** Ajoutez `.env` à votre fichier `.gitignore` pour éviter les commits accidentels :
+```gitignore
+# Ajoutez ceci à votre .gitignore
+.env
+*.env
+.env*.local
+```
+
+### 4. Vérifiez Votre Configuration
+
+Testez votre configuration de clé API :
+```bash
+# Vérifiez si la variable d'environnement est définie
+echo $MISTRAL_API_KEY  # Doit afficher votre clé (macOS/Linux)
+$env:MISTRAL_API_KEY   # Doit afficher votre clé (Windows)
+
+# Testez la connexion Mistral Vibe
+mistral-vibe test-api
+```
+
+**✅ Informations sur la Facturation :**
+- **Promotion actuelle** : Le modèle Devstral-2 est GRATUIT
+- **Tarification standard** : Pay-as-you-go pour les modèles avancés
+- **Niveau gratuit** : Modèles plus petits disponibles pour une utilisation gratuite
+- **Avantages étudiants** : Consultez [Mistral AI Education](https://mistral.ai/education) pour les programmes spéciaux
+
+---
+
 ## 📋 Prérequis Communs
 
 ### 1. Installer Python
